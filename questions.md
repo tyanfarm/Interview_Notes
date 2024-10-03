@@ -169,6 +169,26 @@
     + `Giao dịch đồng thời`: Khi nhiều giao dịch xảy ra đồng thời, cần có phương pháp kiểm soát. Tiêu biểu là `locking`.
     + `Giao dịch thất bại` 
 
+### RDB và NoSQL khác gì nhau?
+|   | RDB | NoSQL |
+|:--|:----------------|:---------------|
+| Kiến trúc dữ liệu | - Sử dụng mô hình dữ liệu quan hệ, được tổ chức trong bảng với các hàng và cột <br/> - Có các ràng buộc dữ liệu (PK, FK, NOT NULL, UNIQUE, ...) <br/> - Có thể quan hệ giữa các bảng với khóa ngoại (Foreign Key)<br/> | - Hỗ trợ nhiều mô hình dữ liệu khác nhau: <br/>&nbsp;&nbsp; + Tài liệu (Document): MongoDB <br/> &nbsp;&nbsp; + Các cặp key-value: Redis <br/>&nbsp;&nbsp; + Graph: Neo4j <br/> - Cho phép lưu dữ liệu mà không cần xác định trước cấu trúc |
+
+### Đánh index là gì? Khi nào đánh khi nào không?
+- `Đánh index` là đánh chỉ mục trên một hoặc nhiều cột nào đó giúp tăng tốc độ truy vấn mà không cần quét toàn bộ bảng
+
+- Khi nào nên đánh index:
+    + Khi bảng dữ liệu có nhiều bản ghi và thường xuyên truy vấn `SELECT`
+    + Truy vấn trên cột thường xuyên sử dụng trong điều kiện lọc
+    + Các nhóm cột thường xuyên sử dụng hàm nhóm (COUNT, AVG, SUM)
+
+- Khi nào không nên đánh index:
+    + Với `bảng nhỏ` (dưới 1000 bản ghi) vì thời gian quét toàn bộ bảng thường không tốn thời gian.
+    + Với các bảng thường xuyên thay đổi (INSERT, UPDATE, DELETE) vì bảng sẽ cần cập nhật lại index.
+    + Chỉ mục sẽ chiếm không gian lưu trữ.
+
+### SQL và NoSQL
+
 # Web
 
 ### Session & Cookies
