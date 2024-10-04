@@ -169,10 +169,10 @@
     + `Giao dịch đồng thời`: Khi nhiều giao dịch xảy ra đồng thời, cần có phương pháp kiểm soát. Tiêu biểu là `locking`.
     + `Giao dịch thất bại` 
 
-### RDB và NoSQL khác gì nhau?
-|   | RDB | NoSQL |
+### SQL và NoSQL khác gì nhau?
+|   | SQL | NoSQL |
 |:--|:----------------|:---------------|
-| Kiến trúc dữ liệu | - Sử dụng mô hình dữ liệu quan hệ, được tổ chức trong bảng với các hàng và cột <br/> - Có các ràng buộc dữ liệu (PK, FK, NOT NULL, UNIQUE, ...) <br/> - Có thể quan hệ giữa các bảng với khóa ngoại (Foreign Key)<br/> | - Hỗ trợ nhiều mô hình dữ liệu khác nhau: <br/>&nbsp;&nbsp; + Tài liệu (Document): MongoDB <br/> &nbsp;&nbsp; + Các cặp key-value: Redis <br/>&nbsp;&nbsp; + Graph: Neo4j <br/> - Cho phép lưu dữ liệu mà không cần xác định trước cấu trúc |
+| Kiến trúc dữ liệu | - Sử dụng mô hình dữ liệu quan hệ, được tổ chức trong bảng với các hàng và cột <br/> - Có các ràng buộc dữ liệu (PK, FK, NOT NULL, UNIQUE, ...) <br/> - Có thể quan hệ giữa các bảng với khóa ngoại (Foreign Key)<br/> | - Hỗ trợ nhiều mô hình dữ liệu khác nhau: <br/>&nbsp;&nbsp; + Tài liệu (Document): MongoDB <br/> &nbsp;&nbsp; + Các cặp key-value: Redis <br/>&nbsp;&nbsp; + Column: Cassandra <br/> - Cho phép lưu dữ liệu mà không cần xác định trước cấu trúc |
 
 ### Đánh index là gì? Khi nào đánh khi nào không?
 - `Đánh index` là đánh chỉ mục trên một hoặc nhiều cột nào đó giúp tăng tốc độ truy vấn mà không cần quét toàn bộ bảng
@@ -187,7 +187,14 @@
     + Với các bảng thường xuyên thay đổi (INSERT, UPDATE, DELETE) vì bảng sẽ cần cập nhật lại index.
     + Chỉ mục sẽ chiếm không gian lưu trữ.
 
-### SQL và NoSQL
+### Shard & View
+- `Shard`: Sharding là kĩ thuật phân mảnh dữ liệu để lưu trữ trên nhiều máy chủ khác nhau để tăng khả năng mở rộng và hiệu suất của CSDL.
+
+![alt](https://images.viblo.asia/c3f91483-4ac3-4a18-a7b4-c604f059e64c.png)
+
+- `View`: Là bảng ảo trong CSDL, không lưu dữ liệu. Thay vì JOIN 2 bảng với nhau trên mỗi lần truy vấn thì ta có thể dùng `VIEW` để thay thế, rút ngắn câu lệnh.
+
+![alt](https://winzone.vn/images/blog/13/view_example.png)
 
 # Web
 
