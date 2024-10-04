@@ -196,6 +196,38 @@
 
 ![alt](https://winzone.vn/images/blog/13/view_example.png)
 
+### Event Store là gì? Các loại Event Store?
+***Event Store là gì***
+- `Event Store`: là 1 loại cơ sở dữ liệu lưu trữ dữ liệu theo sự kiện (event). 
+- `Event Sourcing`: Kỹ thuật lưu trạng thái của dữ liệu `trên sự kiện`. Thay vì lưu trạng thái hiện tại của dữ liệu, nó lưu trữ toàn bộ lịch sử các sự kiện xảy ra. 
+
+***Các loại EventStore phổ biến***
+- `EventStoreDB`
+- `ApacheKafka`
+- `RDM` hay `NoSQL DB` đều có thể sử dụng như 1 EventStore bằng cách lưu các sự kiện trong bảng. 
+
+### Cache là gì? Cache bằng công cụ nào?
+***Cache là gì***
+- Cache lưu trữ bản sao của dữ liệu để tránh việc truy cập dữ liệu gốc nhiều lần, đặc biệt với những dữ liệu tĩnh và ít thay đổi thường xuyên.
+
+- Các loại cache:
+    + Client-side Cache
+    + Server-side Cache
+    + Distributed Cache
+
+- Các thành phần của cache:
+    + Key 
+    + Value
+    + TTL (Time To Live)
+
+***Dùng gì để cache***
+| Công nghệ | Công cụ |
+|:----------------|:---------------|
+| Memory-based caching | Redis |
+| Application-level cache | + ASPNET Cache: `MemoryCache` & `OutputCache` <br/> + Spring Cache (Java)
+| HTTP Caching | Browser Cache |
+| Database Caching | `MySQL` hoặc `PostgreSQL` 
+
 # Web
 
 ### Session & Cookies
