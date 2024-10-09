@@ -5,6 +5,16 @@
 |:----------------|:---------------|
 | Là thực thể được tạo ra từ Class | Là bản thiết kế, xác định thuộc tính và phương thức |
 
+### Struct & Class
+- Giống nhau:
+    + Đều chứa `property` & `field`
+
+|   | Struct | Class |
+|:--|:----------------|:---------------|
+|Kiểu dữ liệu|`Value type`|`Reference type`|
+|Kế thừa| Không hỗ trợ | Hỗ trợ |
+|Constructor không tham số| Không hỗ trợ | Hỗ trợ |
+
 ### Property & Field
 - `Field (trường dữ liệu)`: là biến để lưu dữ liệu trong Struct và Class, có các quyền truy cập (public, protected, private, ...).
 
@@ -57,6 +67,45 @@
 - Ví dụ 1 class cha `Dog` và class con `BullDog`. Xét trường hợp `method` đều có ở class cha và class con. (`Dog dog = new BullDog()`).
 - Khi `override` thì method ở lớp con là method của chính nó, nếu đứng ở class cha và gọi phương thức `override` ở lớp con thì method ở lớp con sẽ được gọi.
 - Nhưng với `hiding` thì nếu gọi phương thức ở class cha thì phương thức ở `class cha` sẽ được gọi.
+
+# OOP
+
+### 4 Tính chất của OOP
+- `Tính đóng gói` (Encapsulation): là tính năng `che giấu` `thông tin` của 1 đối tượng. Các đối tượng bên ngoài muốn `truy cập` hoặc `chỉnh sửa` thông tin thì phải thông qua các `phương thức công khai`.
+
+- `Tính kế thừa` (Inheritance): các lớp con kế thừa thì sẽ thừa hưởng các `thuộc tính` và `phương thức` của lớp cha. Các lớp con có thể `mở rộng` hoặc `thay đổi hành vi` mà không cần viết lại toàn bộ mã.
+
+- `Tính đa hình`: Các `đối tượng khác nhau` có thể thực thi 1 `hàm giống nhau` với các `cài đặt khác nhau`. 
+    + Đa hình được triển khai thông qua `nạp chồng phương thức` (overloading) hoặc `ghi đè phương thức` (overriding)
+
+- `Tính trừu tượng` (Abstraction): Thường được thực hiện thông qua `lớp trừu tượng` (Abstract Class) hoặc `giao diện` (Interface). Nó giống như 1 `bản thiết kế`, `chỉ định` các phương thức cho lớp con, nhưng chi tiết cài đặt sẽ do `lớp con triển khai`.
+
+### SOLID là gì
+- `S` (`Single` Responsibility Principle): mỗi lớp chỉ nên đảm nhận `một` `nhiệm vụ` cụ thể nào đó.
+
+- `O` (`Open`/Closed Principle): `Không được sửa đổi` 1 class có sẵn, nhưng có thể `mở rộng` bằng kế thừa.
+
+- `L` (`Liskov` Substituition Priciple): Thiết kế để các đối tượng `lớp con` có thể thay thế đối tượng `lớp cha` mà không gây ra lỗi.
+
+    + ![alt](https://topdev.vn/blog/wp-content/uploads/2019/07/Liskov-substitution-principle.png)
+    + Ở trường hợp trên `CleanerStaff` kế thừa `Employee` nhưng lại không được dùng method `checkAttendance()` do quy tắc thiết kế => `lỗi`
+    + Có thể tách method `checkAttendance()` qua 1 class riêng.
+
+- `I` (`Interface` Segregation Principle): Nên `chia nhỏ` thành nhiều interface thay vì thiết kế một interface lớn.
+
+- `D` (`Dependency` Inversion Principle): 
+    + Các module cấp cao không nên phụ thuộc vào các module cấp thấp mà `cả hai` nên phụ thuộc vào `abstraction`.
+    + Interface không nên phụ thuộc vào chi tiết mà ngược lại (Các class giao tiếp với nhau thông qua `interface`, không phải `implementation`)
+    + ***Những cái trừu tượng (abstraction) là những cái ít biến động, tập hợp những đặc điểm chung nhất của những cái cụ thể. Việc phụ thuộc vào cái trừu tượng sẽ giúp chương trình linh động và thích ứng tốt với các sự thay đổi diễn ra liên tục.***
+    + ***`Điểm khác biệt` giữa phụ thuộc vào `interface` và phụ thuộc `trực tiếp` là interface giúp chỉ cần quan tâm đến `hành vi chung`, `không` cần quan tâm đến `chi tiết` thực thi của dịch vụ. Như vậy việc sửa đổi mã nguồn sẽ độc lập và dễ bảo trì hơn.***
+    ---
+    + Ví dụ có 1 module cấp cao là `OrderProcessor` và module cấp thấp là `EmailService`
+    + `Vi phạm nguyên tắc`: Implement thẳng EmailService vào OrderProcessor.
+    + `Tuân theo nguyên tắc`: 
+        + Tạo 1 interface `INotificationService` và `EmailService` sẽ kế thừa interface này. `OrderProcessor` chỉ việc inject interface này vào và sử dụng `EmailService`. 
+        + Như vậy khi ta muốn thêm 1 service nào mới (như `SmsService`) thì ta chỉ việc kế thừa từ `INotificationService`, hạn chế thay đổi mã nguồn nhiều nơi.
+
+
 
 # Network
 
@@ -226,7 +275,7 @@
 | Memory-based caching | Redis |
 | Application-level cache | + ASPNET Cache: `MemoryCache` & `OutputCache` <br/> + Spring Cache (Java)
 | HTTP Caching | Browser Cache |
-| Database Caching | `MySQL` hoặc `PostgreSQL` 
+| Database Caching | `MySQL` hoặc `PostgreSQL` |
 
 # Web
 
@@ -250,3 +299,8 @@
 - `Sử dụng session`: Mỗi khi người dùng đăng nhập sẽ có 1 `Session ID` đặt trong `session cookies`. Người dùng sẽ gắn cookies này trong request để lấy dữ liệu từ server. Server sẽ kiểm tra xem `Session ID` trong request có trùng với `Session ID` được lưu ở Server hay không.
 
 - `Sử dụng JWT Token`: Mỗi khi người dùng đăng nhập sẽ được cấp 1 `Access Token`. Người dùng sẽ gắn token này trong `headers` của request và server sẽ kiểm tra token, nếu hợp lệ sẽ cho sử dụng các dịch vụ ở server. 
+
+# .NET
+
+### Phân biệt .NET Core và .NET Framework
+- `Nền tảng`:
