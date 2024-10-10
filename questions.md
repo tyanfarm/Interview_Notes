@@ -11,6 +11,7 @@
 
 |   | Struct | Class |
 |:--|:----------------|:---------------|
+|Lưu trữ|Ngăn xếp `Stack`|Bộ nhớ `Heap`|
 |Kiểu dữ liệu|`Value type`|`Reference type`|
 |Kế thừa| Không hỗ trợ | Hỗ trợ |
 |Constructor không tham số| Không hỗ trợ | Hỗ trợ |
@@ -68,6 +69,18 @@
 - Khi `override` thì method ở lớp con là method của chính nó, nếu đứng ở class cha và gọi phương thức `override` ở lớp con thì method ở lớp con sẽ được gọi.
 - Nhưng với `hiding` thì nếu gọi phương thức ở class cha thì phương thức ở `class cha` sẽ được gọi.
 
+### Static
+- ***Static Class*** (Lớp tĩnh)
+    + `Không` thể khởi tạo được đối tượng (object).
+    + Các thành phần bên trong (phương thức, thuộc tính) `bắt buộc phải là static`.
+    + Dùng chủ yếu cho các phương thức tiện ích hoặc các hàm xử lý mà không cần lưu trữ trạng thái thông qua đối tượng.
+
+- ***Static Method*** (Hàm tĩnh)
+    + Phương thức thuộc về lớp (không phải thuộc về đối tượng như `instance method`)
+    + Có thể gọi thẳng hàm mà không cần khởi tạo đối tượng (trong cả `non-static class` và `static class`).
+    + Không truy cập được các thuộc tính không tĩnh (instance) trong class.
+
+
 # OOP
 
 ### 4 Tính chất của OOP
@@ -95,7 +108,8 @@
 
 - `D` (`Dependency` Inversion Principle): 
     + Các module cấp cao không nên phụ thuộc vào các module cấp thấp mà `cả hai` nên phụ thuộc vào `abstraction`.
-    + Interface không nên phụ thuộc vào chi tiết mà ngược lại (Các class giao tiếp với nhau thông qua `interface`, không phải `implementation`)
+    + Các class giao tiếp với nhau thông qua `interface`, không phải `implementation`
+    ---
     + ***Những cái trừu tượng (abstraction) là những cái ít biến động, tập hợp những đặc điểm chung nhất của những cái cụ thể. Việc phụ thuộc vào cái trừu tượng sẽ giúp chương trình linh động và thích ứng tốt với các sự thay đổi diễn ra liên tục.***
     + ***`Điểm khác biệt` giữa phụ thuộc vào `interface` và phụ thuộc `trực tiếp` là interface giúp chỉ cần quan tâm đến `hành vi chung`, `không` cần quan tâm đến `chi tiết` thực thi của dịch vụ. Như vậy việc sửa đổi mã nguồn sẽ độc lập và dễ bảo trì hơn.***
     ---
@@ -304,3 +318,12 @@
 
 ### Phân biệt .NET Core và .NET Framework
 - `Nền tảng`:
+    + `.NET Framework`:
+        + Ra mắt 2002
+        + Chỉ chạy trên `Windows`
+        + Thiết kế cho ứng dụng desktop (WinForms, WPF, WinUI) và ứng dụng web (ASPNET MVC, ASPNET Web Form)
+    + `.NET Core`:
+        + Ra mắt 2016
+        + Đa nền tảng (MacOS, Linux, Windows)
+        + Phiên bản nâng cấp của .NET Framework
+        + Hỗ trợ `container`, `cloud`
