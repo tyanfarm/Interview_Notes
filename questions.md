@@ -216,7 +216,7 @@
 - Là 1 chuỗi các thao tác tương tác với cơ sở dữ liệu.
 
 - Tuân theo tính chất `ACID`:
-    + `Tính nguyên tử` (`Atomicity`): Tất cả các thao tác bên trong giao dịch phải thành công. Nếu lỗi thì rollback.
+    + `Tính nguyên tử` (`Atomicity`): Toàn bộ giao dịch được coi như `một khối duy nhất`. Hoặc là thành công hoặc là rollback.
     + `Tính nhất quán` (`Consistencty`): Sau bất kì transaction nào thì mối liên kết dữ liệu vẫn không thay đổi.
     + `Tính độc lập` (`Isolation`): Một giao dịch được thực thi không ảnh hưởng đến các giao dịch khác.  
     + `Tính bền vững` (`Durability`): Sau khi các giao dịch diễn ra thành công thì dữ liệu sẽ không bị mất dù gặp bất kì trục trặc gì.
