@@ -161,6 +161,8 @@
 - Application (Tầng ứng dụng)
     + Tầng để người dùng tương tác trực tiếp với ứng dụng
     + Giao thức: 
+        - DHCP: giao thức cấp IP và các thông số mạng tự động cho thiết bị
+        - DNS: hệ thống phân giải tên miền thành IP
         - SMTP (Simple Mail Transfer Protocol)
         - FTP (File Transfer Protocol)
         - HTTP (HyperText Transfer Protocol)
